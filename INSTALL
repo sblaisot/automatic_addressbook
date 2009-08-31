@@ -1,0 +1,8 @@
+IMPORTANT: For the moment, it *will only work with a sqlite database*. Create, 
+fill and submit a "install/<yourdb>.initial.sql" file to enable other backends.
+
+The plugin requires its own db table, thats why, you should run the
+install/index.php script once before enabling the plugin.
+
+Then, each user can enable or disable the plugin in its settings
+pane. 
