@@ -53,10 +53,9 @@ class automatic_addressbook extends rcube_plugin
     public function get_address_book($p)
     {
         $rcmail = rcmail::get_instance();
-        if (($p['id'] == $this->abook_id) && $rcmail->config->get('use_auto_abook')) {
+        if (($p['id'] === $this->abook_id) && $rcmail->config->get('use_auto_abook')) {
             require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
-            $rcmail = rcmail::get_instance();
-            $p['instance'] = new automatic_addressbook_backend($rcmail->db, $rcmail->user);
+            $p['instance'] = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
         }
         return $p;
     }
@@ -83,7 +82,7 @@ class automatic_addressbook extends rcube_plugin
             );
 
         require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
-        $CONTACTS = new automatic_addressbook_backend($rcmail->db, $rcmail->user);
+        $CONTACTS = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
     
         foreach($all_recipients as $recipient) {
             // Bcc and Cc can be empty
@@ -123,11 +122,13 @@ class automatic_addressbook extends rcube_plugin
     public function settings_table($args) {
         if ($args['section'] == 'compose') {
             $use_auto_abook = rcmail::get_instance()->config->get('use_auto_abook');
-            $field_id = 'use_auto_abook';
+            $field_id = 'rcmfd_use_auto_abook';
 
             $checkbox = new html_checkbox(array('name' => '_use_auto_abook', 'id' => $field_id, 'value' => 1));
-            $args['table']->add('title', html::label($field_id, Q($this->gettext("useautoabook"))));
-            $args['table']->add(null, $checkbox->show($use_auto_abook?1:0));
+            $args['blocks']['main']['options']['use_subscriptions'] = array(
+                'title' => html::label($field_id, Q($this->gettext('useautoabook'))),
+                'content' => $checkbox->show($use_auto_abook?1:0),
+            );
         }
         return $args;
     }
