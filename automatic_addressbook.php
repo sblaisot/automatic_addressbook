@@ -11,7 +11,7 @@
    *
    * @version 0.1
    * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
-   * @website http://myroundcube.googlecode.com
+   * @website http://crapouillou.net/~jocelyn/ressources/roundcube/
    * @licence GNU GPL
    *
    **/
@@ -64,7 +64,7 @@ class automatic_addressbook extends rcube_plugin
         $rcmail = rcmail::get_instance();
         if ($rcmail->config->get('use_auto_abook'))
             $p['sources'][$this->abook_id] = 
-                array('id' => $this->abook_id, 'name' => Q($this->gettext('automaticallycollected')), 'readonly' => TRUE);
+                array('id' => $this->abook_id, 'name' => Q($this->gettext('automaticallycollected')), 'readonly' => FALSE);
 
         return $p;
     }
@@ -75,7 +75,10 @@ class automatic_addressbook extends rcube_plugin
         if (($p['id'] === $this->abook_id) && $rcmail->config->get('use_auto_abook')) {
             require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
             $p['instance'] = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
-        }
+            $rcmail->output->command('enable_command','add','import',false);
+        } else {
+            $rcmail->output->command('enable_command','import',true);
+	}
         return $p;
     }
 
