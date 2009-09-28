@@ -171,11 +171,12 @@ class automatic_addressbook extends rcube_plugin
     {
         $rcmail = rcmail::get_instance();
         $contact_email = $args['record']['email'];
+        $moveto = $rcmail->config->get('on_edit_move_to_default');
 
-        if($args['source'] == $this->abook_id && !empty($args['id'])){
+        if($args['source'] == $this->abook_id && !empty($args['id']) && $moveto){
           $cid = $args['id'];
           unset($args['id']);
-          $args['source'] = "0";
+          $args['source'] = $rcmail->config->get('default_addressbook');
           $CONTACTS = $rcmail->get_address_book($args['source']);
           $CONTACTS->insert($args['record'], false);
           $args['id'] = $cid;
@@ -187,6 +188,7 @@ class automatic_addressbook extends rcube_plugin
             if ($collected_contact->count) {
                 $record = $collected_contact->first();
                 $auto_abook->delete($record['contact_id']);
+                $rcmail->output->show_message('automatic_addressbook.contactmoved', 'confirmation');
                 $rcmail->output->add_script("rcmail.add_onload(\"parent.location.href='./?_task=addressbook'\");");       
                 $rcmail->output->send('iframe');		
             }

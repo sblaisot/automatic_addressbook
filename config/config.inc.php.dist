@@ -1,10 +1,15 @@
 <?php
 
 /* automatic_addressbook plugin */
-$rcmail_config['use_auto_abook'] = TRUE;
+$rcmail_config['default_addressbook'] = '0';
+
+/* on edit move to default addressbook */
+$rcmail_config['on_edit_move_to_default'] = FALSE;
 
 /* database table name */
 $rcmail_config['db_table_collected_contacts'] = 'collected_contacts';
 
+/* automatic_addressbook plugin */
+$rcmail_config['use_auto_abook'] = TRUE;
 
 ?>
