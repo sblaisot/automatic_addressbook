@@ -1,9 +1,15 @@
 <?php
   /**
-   * accounts plugin
+   * Automatic address book
    *
    *
-   * @version 1.0 - 31.08.2009
+   * Simple plugin to register to "collect" all recipients of sent mail
+   * to a dedicated address book (usefull for autocompleting email you
+   * already used). User can choose in preferences (compose group) to
+   * enable or disable the feature of this plugin.
+   * Aims to reproduce the similar features of thunderbird or gmail.
+   *
+   * @version 0.1
    * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
    * @website http://myroundcube.googlecode.com
    * @licence GNU GPL
@@ -19,21 +25,11 @@
    *
    **/
 
-  /**
-   * Automatic address book
-   * 
-   * Simple plugin to register to "collect" all recipients of sent mail
-   * to a dedicated address book (usefull for autocompleting email you
-   * already used). User can choose in preferences (compose group) to
-   * enable or disable the feature of this plugin.
-   * Aims to reproduce the similar features of thunderbird or gmail.
-   * 
-   * @version 0.1
-   * @author Jocelyn Delalande
-   * 
+  /*
    * Skeletton based on "example_addressbook" plugin.
    * Contact adding code inspired by addcontact.inc by Thomas Bruederli
    */
+
 class automatic_addressbook extends rcube_plugin
 {
     private $abook_id = 'collected';
@@ -142,7 +138,8 @@ class automatic_addressbook extends rcube_plugin
     /**
      * Adds a check-box to enable/disable automatic address collection.
      */
-    public function settings_table($args) {
+    public function settings_table($args) 
+    {
         if ($args['section'] == 'compose') {
             $use_auto_abook = rcmail::get_instance()->config->get('use_auto_abook');
             $field_id = 'rcmfd_use_auto_abook';
@@ -156,19 +153,22 @@ class automatic_addressbook extends rcube_plugin
         return $args;
     }
 
-    public function save_prefs($args) {
-        $rcmail = rcmail::get_instance();
-        $use_auto_abook = $rcmail->config->get('use_auto_abook');
-        $args['prefs']['use_auto_abook'] = isset($_POST['_use_auto_abook']) ? true : false;
-        return $args;
+    public function save_prefs($args) 
+    {
+        if ($args['section'] == 'compose') {
+            $rcmail = rcmail::get_instance();
+            $use_auto_abook = $rcmail->config->get('use_auto_abook');
+            $args['prefs']['use_auto_abook'] = isset($_POST['_use_auto_abook']) ? true : false;
+        }
+		return $args;
     }
 
     /**
      * When a contact is added to a "regular" addressbook, take care to
      * delete it from collected addressbook if it was in.
      */
-    public function handle_doubles($args) {
-
+    public function handle_doubles($args) 
+    {
         $rcmail = rcmail::get_instance();
         $contact_email = $args['record']['email'];
 
