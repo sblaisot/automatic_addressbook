@@ -1,0 +1,10 @@
+<?php
+
+/* automatic_addressbook plugin */
+$rcmail_config['use_auto_abook'] = TRUE;
+
+/* database table name */
+$rcmail_config['db_table_collected_contacts'] = 'collected_contacts';
+
+
+?>

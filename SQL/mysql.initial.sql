@@ -11,7 +11,7 @@ CREATE TABLE `collected_contacts` (
  PRIMARY KEY(`contact_id`),
  CONSTRAINT `user_id_fk_contacts` FOREIGN KEY (`user_id`)
    REFERENCES `users`(`user_id`)
-   /*!40008
-     ON DELETE CASCADE
-     ON UPDATE CASCADE */
+   --!40008
+   --ON DELETE CASCADE
+   --ON UPDATE CASCADE
 ) ;
