@@ -27,4 +27,4 @@ CREATE TABLE collected_contacts (
     vcard text
 );
 
-CREATE INDEX collected_contacts_user_id_idx ON collected_contacts (user_id);
+CREATE INDEX collected_contacts_user_id_idx ON collected_contacts (user_id, email);
