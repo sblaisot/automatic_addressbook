@@ -36,13 +36,13 @@ class automatic_addressbook extends rcube_plugin
   
     public function init()
     {
-        $this->add_hook('address_sources', array($this, 'address_sources'));
-        $this->add_hook('get_address_book', array($this, 'get_address_book'));
+        $this->add_hook('addressbooks_list', array($this, 'address_sources'));
+        $this->add_hook('addressbook_get', array($this, 'get_address_book'));
         $this->add_hook('message_sent', array($this, 'register_recipients'));
-        $this->add_hook('user_preferences', array($this, 'settings_table'));
-        $this->add_hook('save_preferences', array($this, 'save_prefs'));
-        $this->add_hook('save_contact', array($this, 'handle_doubles'));
-        $this->add_hook('create_contact', array($this, 'handle_doubles'));
+        $this->add_hook('preferences_list', array($this, 'settings_table'));
+        $this->add_hook('preferences_save', array($this, 'save_prefs'));
+        $this->add_hook('contact_update', array($this, 'handle_doubles'));
+        $this->add_hook('contact_create', array($this, 'handle_doubles'));
        
         $this->add_texts('localization/', false);
         $this->load_config('config/config.inc.php.dist');
