@@ -52,7 +52,7 @@ class automatic_addressbook extends rcube_plugin
     public function address_sources($p)
     {
         $rcmail = rcmail::get_instance();
-        if ($rcmail->config->get('use_auto_abook'))
+        if ($rcmail->config->get('use_auto_abook', true))
             $p['sources'][$this->abook_id] = 
                 array('id' => $this->abook_id, 'name' => Q($this->gettext('automaticallycollected')), 'readonly' => FALSE);
 
@@ -62,7 +62,7 @@ class automatic_addressbook extends rcube_plugin
     public function get_address_book($p)
     {
         $rcmail = rcmail::get_instance();
-        if (($p['id'] === $this->abook_id) && $rcmail->config->get('use_auto_abook')) {
+        if (($p['id'] === $this->abook_id) && $rcmail->config->get('use_auto_abook', true)) {
             require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
             $p['instance'] = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
             $rcmail->output->command('enable_command','add','import',false);
@@ -81,7 +81,7 @@ class automatic_addressbook extends rcube_plugin
     {
         $rcmail = rcmail::get_instance();
     
-        if (!$rcmail->config->get('use_auto_abook'))
+        if (!$rcmail->config->get('use_auto_abook', true))
             return;
     
         $IMAP = new rcube_imap(null);
@@ -134,7 +134,7 @@ class automatic_addressbook extends rcube_plugin
     public function settings_table($args) 
     {
         if ($args['section'] == 'compose') {
-            $use_auto_abook = rcmail::get_instance()->config->get('use_auto_abook');
+	  $use_auto_abook = rcmail::get_instance()->config->get('use_auto_abook', true);
             $field_id = 'rcmfd_use_auto_abook';
 
             $checkbox = new html_checkbox(array('name' => '_use_auto_abook', 'id' => $field_id, 'value' => 1));
