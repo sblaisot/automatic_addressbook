@@ -9,7 +9,7 @@ $rcmail_config['on_edit_move_to_default'] = FALSE;
 /* database table name */
 $rcmail_config['db_table_collected_contacts'] = 'collected_contacts';
 
-/* automatic_addressbook plugin */
+/* Is automatic_adressbook enabled or disabled by default for users ? */
 $rcmail_config['use_auto_abook'] = TRUE;
 
 ?>

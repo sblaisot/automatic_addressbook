@@ -9,22 +9,12 @@
    * enable or disable the feature of this plugin.
    * Aims to reproduce the similar features of thunderbird or gmail.
    *
-   * @version 0.1
+   * @version 0.2
    * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
-   * @website http://crapouillou.net/~jocelyn/ressources/roundcube/
+   * @website http://code.crapouillou.net/projects/roundcube-plugins
    * @licence GNU GPL
    *
    **/
-
-  /** USAGE
-   *
-   * #1- Configure "accounts/config/config.inc.php.dist".
-   * #2- Copy file to "config.inc.php" ("config.inc.php.dist" must still be present !!!).
-   * #3- Create 'collected_contacts' database table (see folder SQL)
-   * #4- Register plugin ("./config/main.inc.php ::: $rcmail_config['plugins']").
-   *
-   **/
-
   /*
    * Skeletton based on "example_addressbook" plugin.
    * Contact adding code inspired by addcontact.inc by Thomas Bruederli
