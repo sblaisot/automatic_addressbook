@@ -24,7 +24,8 @@ CREATE TABLE collected_contacts (
     email character varying(128) DEFAULT ''::character varying NOT NULL,
     firstname character varying(128) DEFAULT ''::character varying NOT NULL,
     surname character varying(128) DEFAULT ''::character varying NOT NULL,
-    vcard text
+    vcard text,
+    words text
 );
 
 CREATE INDEX collected_contacts_user_id_idx ON collected_contacts (user_id, email);
