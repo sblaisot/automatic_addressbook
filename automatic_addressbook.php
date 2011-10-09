@@ -39,6 +39,11 @@ class automatic_addressbook extends rcube_plugin
         if(file_exists("./plugins/automatic_addressbook/config/config.inc.php"))
           $this->load_config('config/config.inc.php');
 
+		// Adds an address-book category in rc <= 0.5, retro-compatibility code, 
+		// not needed for rc 0.6
+        $this->add_hook('preferences_sections_list', array($this, 'add_addressbook_category'));
+
+
         // use this address book for autocompletion queries
         $config = rcmail::get_instance()->config;
         $sources = $config->get('autocomplete_addressbooks', array('sql'));
@@ -128,17 +133,37 @@ class automatic_addressbook extends rcube_plugin
         }
     }
   
+
+	/** 
+	 * Adds an address-book settings category in rc <= 0.5, not needed for rc >= 0.6
+	 */
+    public function add_addressbook_category($args)
+	{
+        $temp = $args['list']['server'];
+        unset($args['list']['server']);
+        $args['list']['addressbook']['id'] = 'addressbook';
+        $args['list']['addressbook']['section'] = $this->gettext('addressbook');
+        $args['list']['server'] = $temp;
+        
+        return $args;
+    }
+
+
     /**
      * Adds a check-box to enable/disable automatic address collection.
      */
     public function settings_table($args) 
     {
-        if ($args['section'] == 'compose') {
+        if ($args['section'] == 'addressbook') {
 	  $use_auto_abook = rcmail::get_instance()->config->get('use_auto_abook', true);
             $field_id = 'rcmfd_use_auto_abook';
 
-            $checkbox = new html_checkbox(array('name' => '_use_auto_abook', 'id' => $field_id, 'value' => 1));
-            $args['blocks']['main']['options']['use_subscriptions'] = array(
+            $checkbox = new html_checkbox(array(
+			    'name' => '_use_auto_abook', 
+				'id' => $field_id, 'value' => 1
+			));
+			$args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
+            $args['blocks']['automaticallycollected']['options']['use_subscriptions'] = array(
                 'title' => html::label($field_id, Q($this->gettext('useautoabook'))),
                 'content' => $checkbox->show($use_auto_abook?1:0),
             );
@@ -148,7 +173,7 @@ class automatic_addressbook extends rcube_plugin
 
     public function save_prefs($args) 
     {
-        if ($args['section'] == 'compose') {
+        if ($args['section'] == 'addressbook') {
             $rcmail = rcmail::get_instance();
             $use_auto_abook = $rcmail->config->get('use_auto_abook');
             $args['prefs']['use_auto_abook'] = isset($_POST['_use_auto_abook']) ? true : false;
