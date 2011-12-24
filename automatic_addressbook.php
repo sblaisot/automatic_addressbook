@@ -72,6 +72,7 @@ class automatic_addressbook extends rcube_plugin
             $p['instance'] = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
             $rcmail->output->command('enable_command','add','import',false);
         } else {
+            $p['instance'] = new rcube_contacts($rcmail->db, $rcmail->user->ID);
             $rcmail->output->command('enable_command','import',true);
 	}
         return $p;
