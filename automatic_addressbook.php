@@ -189,8 +189,20 @@ class automatic_addressbook extends rcube_plugin
     public function handle_doubles($args) 
     {
         $rcmail = rcmail::get_instance();
-        $contact_email = $args['record']['email'];
+        if (!$rcmail->config->get('use_auto_abook', true)) { return $args; }
         $moveto = $rcmail->config->get('on_edit_move_to_default');
+
+        foreach (array('email:home', 'email:work', 'email:other') as $email_field) {
+            // Would trigger a warning with rc 0.5 without this if
+            if ($args['record'][$email_field]) {
+                foreach ($args['record'][$email_field] as $email) {
+                    $contact_emails[] = $email;
+                }
+            }
+        }
+        // rc <= 0.5, retro-compatibility code, not needed for rc 0.6
+        $contact_emails[] = $args['record']['email'];
+        //
 
         if($args['source'] == $this->abook_id && !empty($args['id']) && $moveto){
           $cid = $args['id'];
@@ -199,17 +211,21 @@ class automatic_addressbook extends rcube_plugin
           $CONTACTS = $rcmail->get_address_book($args['source']);
           $CONTACTS->insert($args['record'], false);
           $args['id'] = $cid;
+          $rcmail->output->show_message('automatic_addressbook.contactmoved', 'confirmation');
+          $rcmail->output->add_script("rcmail.add_onload(\"parent.location.href='./?_task=addressbook'\");");
+          $rcmail->output->send('iframe');
         }
-
-        if ($args['source'] !== $this->abook_id) {
-            $auto_abook = $rcmail->get_address_book($this->abook_id);
-            $collected_contact = $auto_abook->search('email', $contact_email, false, true);
-            if ($collected_contact->count) {
-                $record = $collected_contact->first();
-                $auto_abook->delete($record['contact_id']);
-                $rcmail->output->show_message('automatic_addressbook.contactmoved', 'confirmation');
-                $rcmail->output->add_script("rcmail.add_onload(\"parent.location.href='./?_task=addressbook'\");");       
-                $rcmail->output->send('iframe');		
+        
+        foreach ($contact_emails as $contact_email) {
+            if ($args['source'] !== $this->abook_id && !empty($contact_email)) {
+                $auto_abook = $rcmail->get_address_book($this->abook_id);
+                $collected_contact = $auto_abook->search('email', $contact_email, false, true);
+                while ($collected_contact->count) {
+                    $record = $collected_contact->first();
+                    $auto_abook->delete($record['contact_id']);
+                    $collected_contact = $auto_abook->search('email', $contact_email, false, true);
+                    $rcmail->output->show_message('automatic_addressbook.contactremoved', 'confirmation');
+                }
             }
         }
         return $args;
