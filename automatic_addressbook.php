@@ -48,7 +48,7 @@ class automatic_addressbook extends rcube_plugin
         $config = rcmail::get_instance()->config;
         $sources = $config->get('autocomplete_addressbooks', array('sql'));
         
-        if (!in_array($this->abook_id, $sources)) {
+        if (!in_array($this->abook_id, $sources) && $config->get('use_auto_abook', true) && $config->get('use_auto_abook_for_completion', true)) {
             $sources[] = $this->abook_id;
             $config->set('autocomplete_addressbooks', $sources);
         }
@@ -167,6 +167,18 @@ class automatic_addressbook extends rcube_plugin
                 'title' => html::label($field_id, Q($this->gettext('useautoabook'))),
                 'content' => $checkbox->show($use_auto_abook?1:0),
             );
+
+          $use_auto_abook_for_completion = rcmail::get_instance()->config->get('use_auto_abook_for_completion', true);
+            $field_id2 = 'rcmfd_use_auto_abook_for_completion';
+            $checkbox2 = new html_checkbox(array(
+                           'name' => '_use_auto_abook_for_completion',
+                               'id' => $field_id2, 'value' => 1
+                       ));
+                       $args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
+            $args['blocks']['automaticallycollected']['options']['use_autocompletion'] = array(
+                'title' => html::label($field_id2, Q($this->gettext('useforcompletion'))),
+                'content' => $checkbox2->show($use_auto_abook_for_completion?1:0),
+            );
         }
         return $args;
     }
@@ -177,6 +189,8 @@ class automatic_addressbook extends rcube_plugin
             $rcmail = rcmail::get_instance();
             $use_auto_abook = $rcmail->config->get('use_auto_abook');
             $args['prefs']['use_auto_abook'] = isset($_POST['_use_auto_abook']) ? true : false;
+            $use_auto_abook_for_completion = $rcmail->config->get('use_auto_abook_for_completion');
+            $args['prefs']['use_auto_abook_for_completion'] = isset($_POST['_use_auto_abook_for_completion']) ? true : false;
         }
 		return $args;
     }
