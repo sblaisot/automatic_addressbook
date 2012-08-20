@@ -1,4 +1,5 @@
 v0.3 :
+* Populated documentation files (README and INSTALL) to have documentation available when installing offline
 * Added Changelog File
 * Fixed compatibility with other addressbook_plugins (#46)
 
