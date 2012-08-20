@@ -17,15 +17,16 @@ CREATE SEQUENCE collected_contact_ids
 
 CREATE TABLE collected_contacts (
     contact_id integer DEFAULT nextval('collected_contact_ids'::text) PRIMARY KEY,
-    user_id integer NOT NULL REFERENCES users (user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    user_id integer NOT NULL
+        REFERENCES users (user_id) ON DELETE CASCADE ON UPDATE CASCADE,
     changed timestamp with time zone DEFAULT now() NOT NULL,
     del smallint DEFAULT 0 NOT NULL,
-    name character varying(128) DEFAULT ''::character varying NOT NULL,
-    email character varying(128) DEFAULT ''::character varying NOT NULL,
-    firstname character varying(128) DEFAULT ''::character varying NOT NULL,
-    surname character varying(128) DEFAULT ''::character varying NOT NULL,
+    name varchar(128) DEFAULT '' NOT NULL,
+    email text DEFAULT '' NOT NULL,
+    firstname varchar(128) DEFAULT '' NOT NULL,
+    surname varchar(128) DEFAULT '' NOT NULL,
     vcard text,
     words text
 );
 
-CREATE INDEX collected_contacts_user_id_idx ON collected_contacts (user_id, email);
+CREATE INDEX collected_contacts_user_id_idx ON collected_contacts (user_id, del);

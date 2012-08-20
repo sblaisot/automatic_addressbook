@@ -6,6 +6,7 @@ v0.3 :
   Side effect is that you can now add contact in collected abook.
 * Disabled contact groups in collected abook
 * Added calls to exec_hook when creating a new contact to improve compatibility with other plugins (thanks to Venia Legendi for submitting patch) (#56)
+* Updated database statements in SQL to reflect changes from RC 0.5
 
 v0.2 and before :
 * previous releases 
