@@ -1,0 +1,6 @@
+v0.3 :
+* Added Changelog File
+* Fixed compatibility with other addressbook_plugins (#46)
+
+v0.2 and before :
+  * previous releases 
