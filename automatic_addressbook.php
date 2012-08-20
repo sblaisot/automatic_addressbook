@@ -59,7 +59,7 @@ class automatic_addressbook extends rcube_plugin
         $rcmail = rcmail::get_instance();
         if ($rcmail->config->get('use_auto_abook', true))
             $p['sources'][$this->abook_id] = 
-                array('id' => $this->abook_id, 'name' => Q($this->gettext('automaticallycollected')), 'readonly' => FALSE);
+                array('id' => $this->abook_id, 'name' => Q($this->gettext('automaticallycollected')), 'readonly' => FALSE, 'groups' => false);
 
         return $p;
     }
@@ -70,6 +70,7 @@ class automatic_addressbook extends rcube_plugin
         if (($p['id'] === $this->abook_id) && $rcmail->config->get('use_auto_abook', true)) {
             require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
             $p['instance'] = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
+            $p['instance']->groups = false;
 	}
         return $p;
     }

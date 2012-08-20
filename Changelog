@@ -4,6 +4,7 @@ v0.3 :
 * Fixed compatibility with other addressbook_plugins (#46)
 * Fixed Add contact button disabled in default abook after viewing collected abook (#58).
   Side effect is that you can now add contact in collected abook.
+* Disabled contact groups in collected abook
 
 v0.2 and before :
 * previous releases 
