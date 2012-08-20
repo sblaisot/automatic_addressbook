@@ -10,6 +10,8 @@ v0.3 :
 * Now call decode_address_list function from rcube_mime as it is deprecated from rcube_imap (#51)
 * Fixed on_edit_move_to_default not working. Fixes #47. Also Fixes #25
 * Defined plugin task list as advised in plugin writing documentation (maybe will improve performance ?)
+* Added pear package.xml file. This way, the plugin is referenced in the about dialog of interface
+* added vietnamese translation found on internet
 
 v0.2 and before :
 * previous releases 
