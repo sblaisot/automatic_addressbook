@@ -22,6 +22,7 @@
 
 class automatic_addressbook extends rcube_plugin
 {
+    public $task = 'mail|addressbook|settings';
     private $abook_id = 'collected';
   
     public function init()

@@ -9,6 +9,7 @@ v0.3 :
 * Updated database statements in SQL to reflect changes from RC 0.5
 * Now call decode_address_list function from rcube_mime as it is deprecated from rcube_imap (#51)
 * Fixed on_edit_move_to_default not working. Fixes #47. Also Fixes #25
+* Defined plugin task list as advised in plugin writing documentation (maybe will improve performance ?)
 
 v0.2 and before :
 * previous releases 
