@@ -125,8 +125,10 @@ class automatic_addressbook extends rcube_plugin
                     if ($previous_entries->count)
                         break;
                 }
-                if (!$previous_entries->count)
-                    $CONTACTS->insert($contact, false);
+                if (!$previous_entries->count) {
+                    $plugin = $rcmail->plugins->exec_hook('contact_create', array('record' => $contact, 'source' => $this->abook_id));
+                    if (!$plugin['abort']) $CONTACTS->insert($contact, false);
+                }
             }
         }
     }
