@@ -7,6 +7,7 @@ v0.3 :
 * Disabled contact groups in collected abook
 * Added calls to exec_hook when creating a new contact to improve compatibility with other plugins (thanks to Venia Legendi for submitting patch) (#56)
 * Updated database statements in SQL to reflect changes from RC 0.5
+* Now call decode_address_list function from rcube_mime as it is deprecated from rcube_imap (#51)
 
 v0.2 and before :
 * previous releases 

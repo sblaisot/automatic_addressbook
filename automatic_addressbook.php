@@ -87,13 +87,12 @@ class automatic_addressbook extends rcube_plugin
         if (!$rcmail->config->get('use_auto_abook', true))
             return;
     
-        $IMAP = new rcube_imap(null);
         $headers = $p['headers'];
 
         $all_recipients = array_merge(
-            $IMAP->decode_address_list($headers['To']),
-            $IMAP->decode_address_list($headers['Cc']),
-            $IMAP->decode_address_list($headers['Bcc'])
+            rcube_mime::decode_address_list($headers['To'], null, true, $headers['charset']),
+            rcube_mime::decode_address_list($headers['Cc'], null, true, $headers['charset']),
+            rcube_mime::decode_address_list($headers['Bcc'], null, true, $headers['charset'])
             );
 
         require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
