@@ -3,7 +3,11 @@ Look at http://code.crapouillou.net/projects/roundcube-plugins
 Installing automatic addressbook plugin
 ---------------------------------------
 
-You need roundcube 0.4, 0.5 or 0.6 installed.
+You need roundcube > 0.4 installed.
+
+automatic_addressbook plugin version 0.2 has been tester against roundcube 0.5 and 0.6.
+above versions have been tested against roundcube 0.8.0 and 0.8.1 with larry skin and mysql backend.
+
 Download the latest version archive
 
 1. Uncompress it and move it to the roundcube plugins dir :

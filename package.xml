@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-    http://pear.php.net/dtd/tasks-1.0.xsd
-    http://pear.php.net/dtd/package-2.0
-    http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
  <name>automatic_addressbook</name>
  <channel>pear.roundcube.net</channel>
  <summary>The automatic addressbook plugin collect each address you send an email to and records it in an address book, making it available for later use or auto-completion.</summary>
- <description>   * Simple plugin to register to &quot;collect&quot; all recipients of sent mail
+ <description>* Simple plugin to register to &quot;collect&quot; all recipients of sent mail
    * to a dedicated address book (usefull for autocompleting email you
    * already used). User can choose in preferences (compose group) to
    * enable or disable the feature of this plugin.
@@ -17,10 +14,28 @@
   <email>sebastien@blaisot.org</email>
   <active>yes</active>
  </lead>
- <date>2012-08-20</date>
- <time>23:43:10</time>
+ <lead>
+  <name>Sebastien Blaisot</name>
+  <user>sblaisot</user>
+  <email>sebastien@blaisot.org</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Sebastien Blaisot</name>
+  <user>sblaisot</user>
+  <email>sebastien@blaisot.org</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Sebastien Blaisot</name>
+  <user>sblaisot</user>
+  <email>sebastien@blaisot.org</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-08-21</date>
+ <time>09:21:34</time>
  <version>
-  <release>0.3b1</release>
+  <release>0.3rc1</release>
   <api>0.3</api>
  </version>
  <stability>
@@ -29,7 +44,7 @@
  </stability>
  <license uri="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3+</license>
  <notes>
-v0.3 :
+v0.3-rc1 :
 * Populated documentation files (README and INSTALL) to have documentation available when installing offline
 * Added Changelog File
 * Fixed compatibility with other addressbook_plugins (#46)
@@ -47,38 +62,33 @@ v0.2 and before :
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <dir name="config">
-    <file name="config.inc.php.dist" role="cfg" />
-   </dir> <!-- /config -->
-   <dir name="localization">
-    <file name="bg_BG.inc" role="data" />
-    <file name="de_DE.inc" role="data" />
-    <file name="el_GR.inc" role="data" />
-    <file name="en_EN.inc" role="data" />
-    <file name="en_US.inc" role="data" />
-    <file name="es_ES.inc" role="data" />
-    <file name="fr_FR.inc" role="data" />
-    <file name="gl_ES.inc" role="data" />
-    <file name="hu_HU.inc" role="data" />
-    <file name="ru_RU.inc" role="data" />
-   </dir> <!-- /localization -->
-   <dir name="SQL">
-    <file name="mssql.initial.sql" role="data" />
-    <file name="mssql.update.sql" role="data" />
-    <file name="mysql.initial.sql" role="data" />
-    <file name="mysql.update.sql" role="data" />
-    <file name="postgres.initial.sql" role="data" />
-    <file name="postgres.update.sql" role="data" />
-    <file name="sqlite.initial.sql" role="data" />
-    <file name="sqlite.update.sql" role="data" />
-   </dir> <!-- /SQL -->
-   <file name="automatic_addressbook.php" role="php" />
-   <file name="automatic_addressbook_backend.php" role="php" />
-   <file name="Changelog" role="data" />
-   <file name="INSTALL" role="data" />
-   <file name="LICENSE" role="data" />
-   <file name="README" role="data" />
-  </dir> <!-- / -->
+   <file baseinstalldir="/" md5sum="bc71ebb06e87080a7655d7d191f32641" name="config/config.inc.php.dist" role="cfg" />
+   <file baseinstalldir="/" md5sum="2a6cfbc273831915b4b4d1ee01e25d1c" name="localization/bg_BG.inc" role="data" />
+   <file baseinstalldir="/" md5sum="a18c2d1aa72e2b9533a8f966b133b777" name="localization/de_DE.inc" role="data" />
+   <file baseinstalldir="/" md5sum="7b8d41bdc8e4f4c6284cdc931e97e29a" name="localization/el_GR.inc" role="data" />
+   <file baseinstalldir="/" md5sum="765017ce4199237f96805792780df5f0" name="localization/en_EN.inc" role="data" />
+   <file baseinstalldir="/" md5sum="765017ce4199237f96805792780df5f0" name="localization/en_US.inc" role="data" />
+   <file baseinstalldir="/" md5sum="cb1f15ec2632714fcd33751ea7ce8640" name="localization/es_ES.inc" role="data" />
+   <file baseinstalldir="/" md5sum="be7ac6b7123aa2c12a7caa6d9013fd01" name="localization/fr_FR.inc" role="data" />
+   <file baseinstalldir="/" md5sum="454d09f50a5325f6212bb144f6bcbb90" name="localization/gl_ES.inc" role="data" />
+   <file baseinstalldir="/" md5sum="54b88b2c729d579b1d515fc5dcae666f" name="localization/hu_HU.inc" role="data" />
+   <file baseinstalldir="/" md5sum="5abda82f3decec27ff5d432c27136958" name="localization/ru_RU.inc" role="data" />
+   <file baseinstalldir="/" md5sum="268aaf8a4759695c06c50d50557d87ab" name="localization/vi_VN.inc" role="data" />
+   <file baseinstalldir="/" md5sum="5288c2991aae7ca3777e106aa7d49da5" name="SQL/mssql.initial.sql" role="data" />
+   <file baseinstalldir="/" md5sum="91e570f1b61a9f173441218be1e9753a" name="SQL/mssql.update.sql" role="data" />
+   <file baseinstalldir="/" md5sum="fd8a89739ea07499f430fa5614e0c7de" name="SQL/mysql.initial.sql" role="data" />
+   <file baseinstalldir="/" md5sum="9a58f4cdf1235a76a20c3385e31abd36" name="SQL/mysql.update.sql" role="data" />
+   <file baseinstalldir="/" md5sum="33367e931a6eb57366dc03663b0d839e" name="SQL/postgres.initial.sql" role="data" />
+   <file baseinstalldir="/" md5sum="0915d2aa9fdbb2dc7fd9cac6519f56eb" name="SQL/postgres.update.sql" role="data" />
+   <file baseinstalldir="/" md5sum="c70ea17992b258cf47fc6bcb9d193421" name="SQL/sqlite.initial.sql" role="data" />
+   <file baseinstalldir="/" md5sum="3dfffe8de68270e13c70c7433dba623a" name="SQL/sqlite.update.sql" role="data" />
+   <file baseinstalldir="/" md5sum="8d33ea4d86d5855d279244c938fb392d" name="automatic_addressbook.php" role="php" />
+   <file baseinstalldir="/" md5sum="76c7ed6560cc2e802270f0e96b75937d" name="automatic_addressbook_backend.php" role="php" />
+   <file baseinstalldir="/" md5sum="85f6cff810a16932be8f1f6a66d453e3" name="Changelog" role="data" />
+   <file baseinstalldir="/" md5sum="76ffb9f49bdd1000d486dfd909d5614c" name="INSTALL" role="data" />
+   <file baseinstalldir="/" md5sum="d32239bcb673463ab874e80d47fae504" name="LICENSE" role="data" />
+   <file baseinstalldir="/" md5sum="c9e0a4828b2215b5747a9a68a0f4ee8e" name="README" role="data" />
+  </dir>
  </contents>
  <dependencies>
   <required>
@@ -88,6 +98,21 @@ v0.2 and before :
    <pearinstaller>
     <min>1.4.0</min>
    </pearinstaller>
+   <package>
+    <name>PEAR</name>
+    <channel>pear.php.net</channel>
+    <min>1.4.0</min>
+   </package>
+   <package>
+    <name>PEAR</name>
+    <channel>pear.php.net</channel>
+    <min>1.4.0</min>
+   </package>
+   <package>
+    <name>PEAR</name>
+    <channel>pear.php.net</channel>
+    <min>1.4.0</min>
+   </package>
    <package>
     <name>PEAR</name>
     <channel>pear.php.net</channel>
@@ -106,10 +131,39 @@ v0.2 and before :
     <release>beta</release>
     <api>stable</api>
    </stability>
-   <date>2012-08-20</date>
+   <date>2012-08-21</date>
    <license uri="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3+</license>
    <notes>
 v0.3 :
+* Populated documentation files (README and INSTALL) to have documentation available when installing offline
+* Added Changelog File
+* Fixed compatibility with other addressbook_plugins (#46)
+* Fixed Add contact button disabled in default abook after viewing collected abook (#58).
+  Side effect is that you can now add contact in collected abook.
+* Disabled contact groups in collected abook
+* Added calls to exec_hook when creating or deleting a contact to improve compatibility with other plugins (thanks to Venia Legendi for submitting patch) (#56)
+* Updated database statements in SQL to reflect changes from RC 0.5
+* Now call decode_address_list function from rcube_mime as it is deprecated from rcube_imap (#51)
+* Fixed on_edit_move_to_default not working. Fixes #47. Also Fixes #25
+* Defined plugin task list as advised in plugin writing documentation (maybe will improve performance ?)
+
+v0.2 and before :
+* previous releases
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3rc1</release>
+    <api>0.3</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <date>2012-08-21</date>
+   <license uri="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3+</license>
+   <notes>
+v0.3-rc1 :
 * Populated documentation files (README and INSTALL) to have documentation available when installing offline
 * Added Changelog File
 * Fixed compatibility with other addressbook_plugins (#46)
