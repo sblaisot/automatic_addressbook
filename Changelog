@@ -10,6 +10,7 @@ v0.3-rc1 :
   Side effect is that you can now add contact in collected abook.
 * Disabled contact groups in collected abook
 * Added calls to exec_hook when creating or deleting a contact to improve compatibility with other plugins (thanks to Venia Legendi for submitting patch) (#56)
+* Added user setting to use automatic abook for autocompletion or not. (#49)
 * Updated database statements in SQL to reflect changes from RC 0.5
 * Now call decode_address_list function from rcube_mime as it is deprecated from rcube_imap (#51)
 * Fixed on_edit_move_to_default not working. Fixes #47. Also Fixes #25
