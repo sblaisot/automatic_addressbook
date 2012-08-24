@@ -1,6 +1,7 @@
 v0.3 :
 * Added nl_NL translation (thanks to Daniel)
 * Updated german translation (thanks to Dennis Riehle)
+* Added zh_CN translation (thaks to FDF)
 
 v0.3-rc1 :
 * Populated documentation files (README and INSTALL) to have documentation available when installing offline
