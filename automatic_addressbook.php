@@ -9,13 +9,15 @@
    * enable or disable the feature of this plugin.
    * Aims to reproduce the similar features of thunderbird or gmail.
    *
-   * @version 0.3-rc1
+   * @version 0.3
    * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
+   * @author Sebastien Blaisot <sebastien@blaisot.org>
    * @website http://code.crapouillou.net/projects/roundcube-plugins
-   * @licence GNU GPL
+   * @licence http://www.gnu.org/licenses/gpl-3.0.html GNU GPLv3+
    *
    **/
-  /*
+
+   /*
    * Skeletton based on "example_addressbook" plugin.
    * Contact adding code inspired by addcontact.inc by Thomas Bruederli
    */
