@@ -1,26 +1,29 @@
 <?php
-  /**
-   * Automatic address book
-   *
-   *
-   * Simple plugin to register to "collect" all recipients of sent mail
-   * to a dedicated address book (usefull for autocompleting email you
-   * already used). User can choose in preferences (compose group) to
-   * enable or disable the feature of this plugin.
-   * Aims to reproduce the similar features of thunderbird or gmail.
-   *
-   * @version 0.3.1
-   * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
-   * @author Sebastien Blaisot <sebastien@blaisot.org>
-   * @website http://code.crapouillou.net/projects/roundcube-plugins
-   * @licence http://www.gnu.org/licenses/gpl-3.0.html GNU GPLv3+
-   *
-   **/
 
-   /*
-   * Skeletton based on "example_addressbook" plugin.
-   * Contact adding code inspired by addcontact.inc by Thomas Bruederli
-   */
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
+
+/**
+ * Automatic address book
+ *
+ *
+ * Simple plugin to register to "collect" all recipients of sent mail
+ * to a dedicated address book (usefull for autocompleting email you
+ * already used). User can choose in preferences (compose group) to
+ * enable or disable the feature of this plugin.
+ * Aims to reproduce the similar features of thunderbird or gmail.
+ *
+ * @version 0.3.1
+ * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
+ * @author Sebastien Blaisot <sebastien@blaisot.org>
+ * @website http://code.crapouillou.net/projects/roundcube-plugins
+ * @licence http://www.gnu.org/licenses/gpl-3.0.html GNU GPLv3+
+ *
+ */
+
+ /*
+ * Skeletton based on "example_addressbook" plugin.
+ * Contact adding code inspired by addcontact.inc by Thomas Bruederli
+ */
 
 class automatic_addressbook extends rcube_plugin
 {
@@ -42,8 +45,8 @@ class automatic_addressbook extends rcube_plugin
         if(file_exists("./plugins/automatic_addressbook/config/config.inc.php"))
           $this->load_config('config/config.inc.php');
 
-		// Adds an address-book category in rc <= 0.5, retro-compatibility code, 
-		// not needed for rc 0.6
+        // Adds an address-book category in rc <= 0.5, retro-compatibility code, 
+        // not needed for rc 0.6
         $this->add_hook('preferences_sections_list', array($this, 'add_addressbook_category'));
 
 
@@ -71,10 +74,10 @@ class automatic_addressbook extends rcube_plugin
     {
         $rcmail = rcmail::get_instance();
         if (($p['id'] === $this->abook_id) && $rcmail->config->get('use_auto_abook', true)) {
-            require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
+            require_once dirname(__FILE__) . '/automatic_addressbook_backend.php';
             $p['instance'] = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
             $p['instance']->groups = false;
-	}
+        }
         return $p;
     }
 
@@ -107,7 +110,7 @@ class automatic_addressbook extends rcube_plugin
             );
         }
 
-        require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
+        require_once dirname(__FILE__) . '/automatic_addressbook_backend.php';
         $CONTACTS = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
     
         foreach($all_recipients as $recipient) {
@@ -145,11 +148,11 @@ class automatic_addressbook extends rcube_plugin
     }
   
 
-	/** 
-	 * Adds an address-book settings category in rc <= 0.5, not needed for rc >= 0.6
-	 */
+    /** 
+     * Adds an address-book settings category in rc <= 0.5, not needed for rc >= 0.6
+     */
     public function add_addressbook_category($args)
-	{
+    {
         $temp = $args['list']['server'];
         unset($args['list']['server']);
         $args['list']['addressbook']['id'] = 'addressbook';
@@ -166,14 +169,14 @@ class automatic_addressbook extends rcube_plugin
     public function settings_table($args) 
     {
         if ($args['section'] == 'addressbook') {
-	  $use_auto_abook = rcmail::get_instance()->config->get('use_auto_abook', true);
+            $use_auto_abook = rcmail::get_instance()->config->get('use_auto_abook', true);
             $field_id = 'rcmfd_use_auto_abook';
 
             $checkbox = new html_checkbox(array(
-			    'name' => '_use_auto_abook', 
-				'id' => $field_id, 'value' => 1
-			));
-			$args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
+                'name' => '_use_auto_abook', 
+                'id' => $field_id, 'value' => 1
+            ));
+            $args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
             $args['blocks']['automaticallycollected']['options']['use_subscriptions'] = array(
                 'title' => html::label($field_id, Q($this->gettext('useautoabook'))),
                 'content' => $checkbox->show($use_auto_abook?1:0),
@@ -203,7 +206,7 @@ class automatic_addressbook extends rcube_plugin
             $use_auto_abook_for_completion = $rcmail->config->get('use_auto_abook_for_completion');
             $args['prefs']['use_auto_abook_for_completion'] = isset($_POST['_use_auto_abook_for_completion']) ? true : false;
         }
-		return $args;
+        return $args;
     }
 
     /**
