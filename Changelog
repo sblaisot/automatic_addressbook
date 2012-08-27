@@ -1,3 +1,6 @@
+v0.3.1 :
+* Fix a bug that prevents RC < 0.8 to send mail with plugin activated (#67)
+
 v0.3 :
 * Added nl_NL translation (thanks to Daniel)
 * Updated german translation (thanks to Dennis Riehle)

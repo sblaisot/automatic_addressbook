@@ -9,7 +9,7 @@
    * enable or disable the feature of this plugin.
    * Aims to reproduce the similar features of thunderbird or gmail.
    *
-   * @version 0.3
+   * @version 0.3.1
    * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
    * @author Sebastien Blaisot <sebastien@blaisot.org>
    * @website http://code.crapouillou.net/projects/roundcube-plugins
@@ -92,11 +92,20 @@ class automatic_addressbook extends rcube_plugin
     
         $headers = $p['headers'];
 
-        $all_recipients = array_merge(
-            rcube_mime::decode_address_list($headers['To'], null, true, $headers['charset']),
-            rcube_mime::decode_address_list($headers['Cc'], null, true, $headers['charset']),
-            rcube_mime::decode_address_list($headers['Bcc'], null, true, $headers['charset'])
+        if (!class_exists('rcube_mime')) { // RC < 0.8 compatibility code
+            $IMAP = new rcube_imap(null);
+            $all_recipients = array_merge(
+                $IMAP->decode_address_list($headers['To'], null, true, $headers['charset']),
+                $IMAP->decode_address_list($headers['Cc'], null, true, $headers['charset']),
+                $IMAP->decode_address_list($headers['Bcc'], null, true, $headers['charset'])
             );
+        } else {
+            $all_recipients = array_merge(
+                rcube_mime::decode_address_list($headers['To'], null, true, $headers['charset']),
+                rcube_mime::decode_address_list($headers['Cc'], null, true, $headers['charset']),
+                rcube_mime::decode_address_list($headers['Bcc'], null, true, $headers['charset'])
+            );
+        }
 
         require_once(dirname(__FILE__) . '/automatic_addressbook_backend.php');
         $CONTACTS = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
