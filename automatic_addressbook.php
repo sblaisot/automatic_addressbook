@@ -220,18 +220,17 @@ class automatic_addressbook extends rcube_plugin
         $moveto = $rcmail->config->get('on_edit_move_to_default');
 
         if($args['source'] == $this->abook_id && !empty($args['id']) && $moveto){
-          $cid = $args['id'];
-          unset($args['id']);
           $args['source'] = $rcmail->config->get('default_addressbook');
           $plugin = $rcmail->plugins->exec_hook('contact_create', array('record' => $args['record'], 'source' => $args['source']));
           if (!$plugin['abort']) {
               $CONTACTS = $rcmail->get_address_book($args['source']);
-              $CONTACTS->insert($args['record'], false);
+              $insert_id = $CONTACTS->insert($args['record'], false);
+          } else {
+              $insert_id = $plugin['result'];
           }
-          $args['id'] = $cid;
           $rcmail->output->show_message('automatic_addressbook.contactmoved', 'confirmation');
-          $rcmail->output->add_script("rcmail.add_onload(\"parent.location.href='./?_task=addressbook&_source=".$this->abook_id."'\");");
-          $rcmail->output->send('iframe');
+          $rcmail->output->command('parent.list_contacts');
+          return array('abort' => true, 'result' => $insert_id);
         }
 
         if ($args['source'] !== $this->abook_id) {

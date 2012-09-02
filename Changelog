@@ -1,3 +1,6 @@
+v0.4 :
+* Refresh contact list when editing a contact in collected addressbook and having on_edit_move_to_default set to true (#68)
+
 v0.3.1 :
 * Fix a bug that prevents RC < 0.8 to send mail with plugin activated (#67)
 
