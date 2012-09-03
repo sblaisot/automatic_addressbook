@@ -260,6 +260,7 @@ class automatic_addressbook extends rcube_plugin
                     }
                 }
             }
+            if ($rcmail->task == "addressbook" && $rcmail->action == "copy" && $_REQUEST['_source'] == $this->abook_id) $rcmail->output->command('parent.list_contacts');
         }
 
         return $args;
