@@ -6,9 +6,9 @@
 
 */
 $labels = array();
-$labels['automaticallycollected']  = 'Direcciones recientes';
-$labels['useautoabook']  = 'Guardar automáticamente las direcciones a las que se envía correo';
-$labels['useforcompletion'] = 'Usar las direcciones automáticamente recogidas para la autocompleción';
-$labels['contactremoved'] = 'Contacto(s) suprimidos de la libreta de direcciones automática';
-$labels['contactmoved'] = 'El contacto se ha añadido a la libreta de direcciones';
+$labels['automaticallycollected']  = 'Automáticamente recuperada';
+$labels['useautoabook']  = 'Usar la libreta de direcciones automática';
+$labels['useforcompletion'] = 'Usar las direcciones automáticamente recuperadas para la autocompletación';
+$labels['contactremoved'] = 'Contacto(s) suprimido(s) de la libreta de direcciones automática';
+$labels['contactmoved'] = 'Contacto(s) trasladado(s) desde la libreta de direcciones automática';
 ?>
