@@ -13,7 +13,7 @@ Download the latest version archive
 1. Uncompress it and move it to the roundcube plugins dir :
 
     tar xvjf automatic_addressbook-latest.tar.bz2
-    mv rc_plugins/automatic_addressbook <path_to_roundcube>/plugins/
+    mv automatic_addressbook <path_to_roundcube>/plugins/
 
 2. Execute the relevant SQL/<db engine>.initial.sql script on your database (process depends on your DB engine)
 
