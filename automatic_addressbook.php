@@ -12,7 +12,7 @@
  * enable or disable the feature of this plugin.
  * Aims to reproduce the similar features of thunderbird or gmail.
  *
- * @version 0.3.1
+ * @version 0.4
  * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
  * @author Sebastien Blaisot <sebastien@blaisot.org>
  * @website http://code.crapouillou.net/projects/roundcube-plugins

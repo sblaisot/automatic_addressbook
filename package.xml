@@ -23,18 +23,27 @@ Aims to reproduce the similar features of thunderbird or gmail.</description>
   <email>sebastien@blaisot.org</email>
   <active>yes</active>
  </lead>
- <date>2012-08-24</date>
- <time>12:10:03</time>
+ <date>2012-11-06</date>
+ <time>23:08:19</time>
  <version>
-  <release>0.3</release>
-  <api>0.3</api>
+  <release>0.4</release>
+  <api>0.4</api>
  </version>
  <stability>
-  <release>beta</release>
+  <release>stable</release>
   <api>stable</api>
  </stability>
  <license uri="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3+</license>
  <notes>
+v0.4 :
+* Refresh contact list when editing a contact in collected addressbook and having on_edit_move_to_default set to true (#68)
+* Refresh contact list when copying a contact from collected addressbook and having on_edit_move_to_default set to true (Fix #69)
+* Added polish translation. Thanks to Marcin Dorota (#72)
+* Added lithuanian translation. Thanks to Kestutis M (#73)
+
+v0.3.1 :
+* Fix a bug that prevents RC &lt; 0.8 to send mail with plugin activated (#67)
+
 v0.3 :
 * Added nl_NL translation (thanks to Daniel)
 * Updated german translation (thanks to Dennis Riehle)
@@ -48,10 +57,13 @@ v0.3-rc1 :
   Side effect is that you can now add contact in collected abook.
 * Disabled contact groups in collected abook
 * Added calls to exec_hook when creating or deleting a contact to improve compatibility with other plugins (thanks to Venia Legendi for submitting patch) (#56)
+* Added user setting to use automatic abook for autocompletion or not. (#49)
 * Updated database statements in SQL to reflect changes from RC 0.5
 * Now call decode_address_list function from rcube_mime as it is deprecated from rcube_imap (#51)
 * Fixed on_edit_move_to_default not working. Fixes #47. Also Fixes #25
 * Defined plugin task list as advised in plugin writing documentation (maybe will improve performance ?)
+* Added pear package.xml file. This way, the plugin is referenced in the about dialog of interface
+* added vietnamese translation found on internet
 
 v0.2 and before :
 * previous releases
@@ -72,7 +84,10 @@ v0.2 and before :
     <file name="gl_ES.inc" role="data" />
     <file name="hu_HU.inc" role="data" />
     <file name="it_IT.inc" role="data" />
+    <file name="lt_LT.inc" role="data" />
     <file name="nl_NL.inc" role="data" />
+    <file name="pl_PL.inc" role="data" />
+    <file name="pt_BR.php" role="data" />
     <file name="ru_RU.inc" role="data" />
     <file name="vi_VN.inc" role="data" />
     <file name="zh_CN.inc" role="data" />
@@ -90,6 +105,7 @@ v0.2 and before :
    <file name="automatic_addressbook.php" role="php" />
    <file name="automatic_addressbook_backend.php" role="php" />
    <file name="Changelog" role="doc" />
+   <file name="composer.json" role="data" />
    <file name="INSTALL" role="doc" />
    <file name="LICENSE" role="doc" />
    <file name="README" role="doc" />
@@ -114,16 +130,25 @@ v0.2 and before :
  <changelog>
   <release>
    <version>
-    <release>0.3</release>
-    <api>0.3</api>
+    <release>0.4</release>
+    <api>0.4</api>
    </version>
    <stability>
-    <release>beta</release>
+    <release>stable</release>
     <api>stable</api>
    </stability>
-   <date>2012-08-24</date>
+   <date>2012-11-06</date>
    <license uri="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3+</license>
    <notes>
+v0.4 :
+* Refresh contact list when editing a contact in collected addressbook and having on_edit_move_to_default set to true (#68)
+* Refresh contact list when copying a contact from collected addressbook and having on_edit_move_to_default set to true (Fix #69)
+* Added polish translation. Thanks to Marcin Dorota (#72)
+* Added lithuanian translation. Thanks to Kestutis M (#73)
+
+v0.3.1 :
+* Fix a bug that prevents RC &lt; 0.8 to send mail with plugin activated (#67)
+
 v0.3 :
 * Added nl_NL translation (thanks to Daniel)
 * Updated german translation (thanks to Dennis Riehle)
@@ -137,10 +162,13 @@ v0.3-rc1 :
   Side effect is that you can now add contact in collected abook.
 * Disabled contact groups in collected abook
 * Added calls to exec_hook when creating or deleting a contact to improve compatibility with other plugins (thanks to Venia Legendi for submitting patch) (#56)
+* Added user setting to use automatic abook for autocompletion or not. (#49)
 * Updated database statements in SQL to reflect changes from RC 0.5
 * Now call decode_address_list function from rcube_mime as it is deprecated from rcube_imap (#51)
 * Fixed on_edit_move_to_default not working. Fixes #47. Also Fixes #25
 * Defined plugin task list as advised in plugin writing documentation (maybe will improve performance ?)
+* Added pear package.xml file. This way, the plugin is referenced in the about dialog of interface
+* added vietnamese translation found on internet
 
 v0.2 and before :
 * previous releases
