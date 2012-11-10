@@ -2,7 +2,6 @@
     "name": "sblaisot/automatic_addressbook",
     "description": "The automatic addressbook plugin collect each address you send an email to and records it in an address book, making it available for later use or auto-completion.",
     "license": "GPL-3.0+",
-    "version": "0.4.0",
     "type": "roundcube-plugin",
     "homepage": "http://code.crapouillou.net/projects/roundcube-plugins",
     "authors": [
