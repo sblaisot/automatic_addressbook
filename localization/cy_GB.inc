@@ -2,22 +2,22 @@
 
 /*
  +-----------------------------------------------------------------------+
- | localization/it_IT/labels.inc                                         |
+ | localization/cy_GB/labels.inc                                         |
  |                                                                       |
  | Language file of the Roundcube Webmail client                         |
  | Copyright (C) 2012, The Roundcube Dev Team                            |
  | Licensed under the GNU General Public License                         |
  |                                                                       |
  +-----------------------------------------------------------------------+
- | Author: Thomas                                                        |
+ | Author: Dafydd Tomos                                                  |
  +-----------------------------------------------------------------------+
 */
 
 $labels = array();
-$labels['automaticallycollected'] = 'Raccolti automaticamente';
-$labels['useautoabook'] = 'Usa rubrica automatica';
-$labels['useforcompletion'] = 'Usa indirizzi raccolti automaticamente per l\'autocompletamento';
-$labels['contactremoved'] = 'Contatto/i eliminato/i dalla rubrica automatica';
-$labels['contactmoved'] = 'Contatto/i spostato/i dalla rubrica automatica';
+$labels['automaticallycollected'] = 'Casglwyd yn Awtomatig';
+$labels['useautoabook'] = 'Defnyddio llyfr cyfeiriad awtomatig';
+$labels['useforcompletion'] = 'Defnyddio cyfeiriadau casglwyd yn awtomatig ar gyfer awtogwblhau';
+$labels['contactremoved'] = 'Dilewyd cysylltiad o\'r llyfr cyfeiriadau awtomatig';
+$labels['contactmoved'] = 'Symudwyd cyswllt o\'r llyfr cyfeiriadau awtomatig';
 
 ?>

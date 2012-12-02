@@ -2,22 +2,22 @@
 
 /*
  +-----------------------------------------------------------------------+
- | localization/it_IT/labels.inc                                         |
+ | localization/zh_TW/labels.inc                                         |
  |                                                                       |
  | Language file of the Roundcube Webmail client                         |
  | Copyright (C) 2012, The Roundcube Dev Team                            |
  | Licensed under the GNU General Public License                         |
  |                                                                       |
  +-----------------------------------------------------------------------+
- | Author: Thomas                                                        |
+ | Author: 林子忠                                                     |
  +-----------------------------------------------------------------------+
 */
 
 $labels = array();
-$labels['automaticallycollected'] = 'Raccolti automaticamente';
-$labels['useautoabook'] = 'Usa rubrica automatica';
-$labels['useforcompletion'] = 'Usa indirizzi raccolti automaticamente per l\'autocompletamento';
-$labels['contactremoved'] = 'Contatto/i eliminato/i dalla rubrica automatica';
-$labels['contactmoved'] = 'Contatto/i spostato/i dalla rubrica automatica';
+$labels['automaticallycollected'] = '自動收集';
+$labels['useautoabook'] = '使用自動通訊簿';
+$labels['useforcompletion'] = '使用自動收集的地址並自動完成';
+$labels['contactremoved'] = '從自動通訊簿刪除聯絡人';
+$labels['contactmoved'] = '從自動通訊簿移動聯絡人';
 
 ?>

@@ -2,22 +2,21 @@
 
 /*
  +-----------------------------------------------------------------------+
- | localization/it_IT/labels.inc                                         |
+ | localization/br/labels.inc                                         |
  |                                                                       |
  | Language file of the Roundcube Webmail client                         |
  | Copyright (C) 2012, The Roundcube Dev Team                            |
  | Licensed under the GNU General Public License                         |
  |                                                                       |
  +-----------------------------------------------------------------------+
- | Author: Thomas                                                        |
+ | Author: Denis                                                         |
  +-----------------------------------------------------------------------+
 */
 
 $labels = array();
-$labels['automaticallycollected'] = 'Raccolti automaticamente';
-$labels['useautoabook'] = 'Usa rubrica automatica';
-$labels['useforcompletion'] = 'Usa indirizzi raccolti automaticamente per l\'autocompletamento';
-$labels['contactremoved'] = 'Contatto/i eliminato/i dalla rubrica automatica';
-$labels['contactmoved'] = 'Contatto/i spostato/i dalla rubrica automatica';
+$labels['automaticallycollected'] = 'Dastumet emgefreek';
+$labels['useautoabook'] = 'Arverañ ar c\'harned chomlec\'hioù emgefreek';
+$labels['contactremoved'] = 'Darempred(où) dilamet diouzh ar c\'harned chomlec\'hioù emgefreek';
+$labels['contactmoved'] = 'Darempred(où) dilec\'hiet diouzh ar c\'harned chomlec\'hioù emgefreek';
 
 ?>

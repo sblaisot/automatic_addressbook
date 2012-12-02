@@ -2,22 +2,22 @@
 
 /*
  +-----------------------------------------------------------------------+
- | localization/it_IT/labels.inc                                         |
+ | localization/pt_BR/labels.inc                                         |
  |                                                                       |
  | Language file of the Roundcube Webmail client                         |
  | Copyright (C) 2012, The Roundcube Dev Team                            |
  | Licensed under the GNU General Public License                         |
  |                                                                       |
  +-----------------------------------------------------------------------+
- | Author: Thomas                                                        |
+ | Author: Victor Benincasa <vbenincasa@gmail.com>                       |
  +-----------------------------------------------------------------------+
 */
 
 $labels = array();
-$labels['automaticallycollected'] = 'Raccolti automaticamente';
-$labels['useautoabook'] = 'Usa rubrica automatica';
-$labels['useforcompletion'] = 'Usa indirizzi raccolti automaticamente per l\'autocompletamento';
-$labels['contactremoved'] = 'Contatto/i eliminato/i dalla rubrica automatica';
-$labels['contactmoved'] = 'Contatto/i spostato/i dalla rubrica automatica';
+$labels['automaticallycollected'] = 'Coletado automaticamente';
+$labels['useautoabook'] = 'Usar catálogo de endereços automático';
+$labels['useforcompletion'] = 'Usar endereços coletados automaticamente para autocompletar';
+$labels['contactremoved'] = 'Contato(s) excluído(s) do catálogo de endereços automático';
+$labels['contactmoved'] = 'Contato(s) movidos(s) do catálogo de endereços automático';
 
 ?>
