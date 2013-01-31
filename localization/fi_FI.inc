@@ -1,23 +1,8 @@
 <?php
-
-/*
- +-----------------------------------------------------------------------+
- | localization/fi_FI/labels.inc                                         |
- |                                                                       |
- | Language file of the Roundcube Webmail client                         |
- | Copyright (C) 2012, The Roundcube Dev Team                            |
- | Licensed under the GNU General Public License                         |
- |                                                                       |
- +-----------------------------------------------------------------------+
- | Author: Jiri Grönroos                                                |
- +-----------------------------------------------------------------------+
-*/
-
 $labels = array();
-$labels['automaticallycollected'] = 'Automaattisesti kerätty';
-$labels['useautoabook'] = 'Käytä automaattista osoitekirjaa';
-$labels['useforcompletion'] = 'Käytä automaattisesti kerättyjä osoitteita automaattitäydennystä varten';
-$labels['contactremoved'] = 'Automaattisesta osoitekirjasta poistetut osoitteet';
-$labels['contactmoved'] = 'Automaattisesta osoitekirjasta siirretyt osoitteet';
-
+$labels['automaticallycollected']  = 'Automatically Collected';
+$labels['useautoabook']  = 'Use automatic address book';
+$labels['useforcompletion'] = 'Use automatically collected addresses for autocompletion';
+$labels['contactremoved'] = 'Contact(s) deleted from automatic address book';
+$labels['contactmoved'] = 'Contact(s) moved from automatic address book';
 ?>
