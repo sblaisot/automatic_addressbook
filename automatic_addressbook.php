@@ -30,6 +30,9 @@ class automatic_addressbook extends rcube_plugin
     public $task = 'mail|addressbook|settings';
     private $abook_id = 'collected';
   
+    /**
+     * Initialize plugin
+     */
     public function init()
     {
         $this->add_hook('addressbooks_list', array($this, 'address_sources'));
@@ -42,8 +45,9 @@ class automatic_addressbook extends rcube_plugin
        
         $this->add_texts('localization/', false);
         $this->load_config('config/config.inc.php.dist');
-        if(file_exists("./plugins/automatic_addressbook/config/config.inc.php"))
-          $this->load_config('config/config.inc.php');
+        if (file_exists("./plugins/automatic_addressbook/config/config.inc.php")) {
+            $this->load_config('config/config.inc.php');
+        }
 
         // Adds an address-book category in rc <= 0.5, retro-compatibility code, 
         // not needed for rc 0.6
@@ -54,22 +58,39 @@ class automatic_addressbook extends rcube_plugin
         $config = rcmail::get_instance()->config;
         $sources = $config->get('autocomplete_addressbooks', array('sql'));
         
-        if (!in_array($this->abook_id, $sources) && $config->get('use_auto_abook', true) && $config->get('use_auto_abook_for_completion', true)) {
+        if (!in_array($this->abook_id, $sources) &&
+                      $config->get('use_auto_abook', true) &&
+                      $config->get('use_auto_abook_for_completion', true)) {
             $sources[] = $this->abook_id;
             $config->set('autocomplete_addressbooks', $sources);
         }
     }
     
+    /**
+     * Register automatic_addressbook as address source
+     *
+     * @param  array $p  Hash array with list of available address books
+     * @return array $p  Hash array with list of available address books
+     */
     public function address_sources($p)
     {
         $rcmail = rcmail::get_instance();
-        if ($rcmail->config->get('use_auto_abook', true))
+        if ($rcmail->config->get('use_auto_abook', true)) {
             $p['sources'][$this->abook_id] = 
-                array('id' => $this->abook_id, 'name' => Q($this->gettext('automaticallycollected')), 'readonly' => FALSE, 'groups' => false);
+                array('id' => $this->abook_id,
+                      'name' => Q($this->gettext('automaticallycollected')),
+                      'readonly' => FALSE, 'groups' => false);
+        }
 
         return $p;
     }
   
+    /**
+     * Requests automatic_addressbook instance
+     *
+     * @param  array $p  Hash array containing the id of the requested abook
+     * @return array $p  Hash array containing instance of the requested abook
+     */
     public function get_address_book($p)
     {
         $rcmail = rcmail::get_instance();
@@ -85,13 +106,17 @@ class automatic_addressbook extends rcube_plugin
      * Collect the email address of a just-sent email recipients into
      * the automatic addressbook (if it's not already in another
      * addressbook). 
+     *
+     * @param array $p Hash array containing header and body of sent mail
+     * @return nothing
      */
     public function register_recipients($p)
     {
         $rcmail = rcmail::get_instance();
     
-        if (!$rcmail->config->get('use_auto_abook', true))
+        if (!$rcmail->config->get('use_auto_abook', true)) {
             return;
+        }
     
         $headers = $p['headers'];
 
@@ -113,7 +138,7 @@ class automatic_addressbook extends rcube_plugin
         require_once dirname(__FILE__) . '/automatic_addressbook_backend.php';
         $CONTACTS = new automatic_addressbook_backend($rcmail->db, $rcmail->user->ID);
     
-        foreach($all_recipients as $recipient) {
+        foreach ($all_recipients as $recipient) {
             // Bcc and Cc can be empty
             if ($recipient['mailto'] != '') {
                 $contact = array(
@@ -122,9 +147,10 @@ class automatic_addressbook extends rcube_plugin
                     );
 
                 // use email address part for name
-                if (empty($contact['name']) || $contact['name'] == $contact['email'])
-                    $contact['name'] = ucfirst(preg_replace('/[\.\-]/', ' ', 
-                                                            substr($contact['email'], 0, strpos($contact['email'], '@'))));
+                if (empty($contact['name']) || $contact['name'] == $contact['email']) {
+                    $contact['name'] = ucfirst(preg_replace('/[\.\-]/', ' ',
+                                               substr($contact['email'], 0, strpos($contact['email'], '@'))));
+                }
 
                 /* We only want to add the contact to the collected contacts
                  * address book if it is not already in an addressbook, so we
@@ -136,12 +162,16 @@ class automatic_addressbook extends rcube_plugin
                     $abook = $rcmail->get_address_book($id);
                     $previous_entries = $abook->search('email', $contact['email'], false, false);
       
-                    if ($previous_entries->count)
+                    if ($previous_entries->count) {
                         break;
+                    }
                 }
                 if (!$previous_entries->count) {
-                    $plugin = $rcmail->plugins->exec_hook('contact_create', array('record' => $contact, 'source' => $this->abook_id));
-                    if (!$plugin['abort']) $CONTACTS->insert($contact, false);
+                    $plugin = $rcmail->plugins->exec_hook('contact_create', array('record' => $contact,
+                                                                                  'source' => $this->abook_id));
+                    if (!$plugin['abort']) {
+                        $CONTACTS->insert($contact, false);
+                    }
                 }
             }
         }
@@ -150,6 +180,9 @@ class automatic_addressbook extends rcube_plugin
 
     /** 
      * Adds an address-book settings category in rc <= 0.5, not needed for rc >= 0.6
+     *
+     * @param array $args Hash array with list (hash array) of sections and  list (hash array) of sections
+     * @return array Hash array with list (hash array) of sections and  list (hash array) of sections
      */
     public function add_addressbook_category($args)
     {
@@ -165,6 +198,9 @@ class automatic_addressbook extends rcube_plugin
 
     /**
      * Adds a check-box to enable/disable automatic address collection.
+     *
+     * @param array $args Hash array containing section and preference blocks
+     * @return array Hash array containing preference blocks with addressbook preferences
      */
     public function settings_table($args) 
     {
@@ -179,24 +215,30 @@ class automatic_addressbook extends rcube_plugin
             $args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
             $args['blocks']['automaticallycollected']['options']['use_subscriptions'] = array(
                 'title' => html::label($field_id, Q($this->gettext('useautoabook'))),
-                'content' => $checkbox->show($use_auto_abook?1:0),
+                'content' => $checkbox->show($use_auto_abook ? 1 : 0),
             );
 
-          $use_auto_abook_for_completion = rcmail::get_instance()->config->get('use_auto_abook_for_completion', true);
+            $use_auto_abook_for_completion = rcmail::get_instance()->config->get('use_auto_abook_for_completion', true);
             $field_id2 = 'rcmfd_use_auto_abook_for_completion';
             $checkbox2 = new html_checkbox(array(
                            'name' => '_use_auto_abook_for_completion',
                                'id' => $field_id2, 'value' => 1
-                       ));
-                       $args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
+                         ));
+            $args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
             $args['blocks']['automaticallycollected']['options']['use_autocompletion'] = array(
                 'title' => html::label($field_id2, Q($this->gettext('useforcompletion'))),
-                'content' => $checkbox2->show($use_auto_abook_for_completion?1:0),
+                'content' => $checkbox2->show($use_auto_abook_for_completion ? 1 : 0),
             );
         }
         return $args;
     }
 
+    /**
+     * Save preferences
+     *
+     * @param array $args Hash array with prefs to be saved 
+     * @return array $args Hash array with result: boolean, abort: boolean, prefs: array 
+     */
     public function save_prefs($args) 
     {
         if ($args['section'] == 'addressbook') {
@@ -212,25 +254,31 @@ class automatic_addressbook extends rcube_plugin
     /**
      * When a contact is added to a "regular" addressbook, take care to
      * delete it from collected addressbook if it was in.
+     *
+     * @param array $args Hash array with contact details
+     * @return array record updated or abort
      */
     public function handle_doubles($args) 
     {
         $rcmail = rcmail::get_instance();
-        if (!$rcmail->config->get('use_auto_abook', true)) { return $args; }
+        if (!$rcmail->config->get('use_auto_abook', true)) {
+            return $args;
+        }
         $moveto = $rcmail->config->get('on_edit_move_to_default');
 
-        if($args['source'] == $this->abook_id && !empty($args['id']) && $moveto){
-          $args['source'] = $rcmail->config->get('default_addressbook');
-          $plugin = $rcmail->plugins->exec_hook('contact_create', array('record' => $args['record'], 'source' => $args['source']));
-          if (!$plugin['abort']) {
-              $CONTACTS = $rcmail->get_address_book($args['source']);
-              $insert_id = $CONTACTS->insert($args['record'], false);
-          } else {
-              $insert_id = $plugin['result'];
-          }
-          $rcmail->output->show_message('automatic_addressbook.contactmoved', 'confirmation');
-          $rcmail->output->command('parent.list_contacts');
-          return array('abort' => true, 'result' => $insert_id);
+        if ($args['source'] == $this->abook_id && !empty($args['id']) && $moveto) {
+            $args['source'] = $rcmail->config->get('default_addressbook');
+            $plugin = $rcmail->plugins->exec_hook('contact_create', array('record' => $args['record'],
+                                                                          'source' => $args['source']));
+            if (!$plugin['abort']) {
+                $CONTACTS = $rcmail->get_address_book($args['source']);
+                $insert_id = $CONTACTS->insert($args['record'], false);
+            } else {
+                $insert_id = $plugin['result'];
+            }
+            $rcmail->output->show_message('automatic_addressbook.contactmoved', 'confirmation');
+            $rcmail->output->command('parent.list_contacts');
+            return array('abort' => true, 'result' => $insert_id);
         }
 
         if ($args['source'] !== $this->abook_id) {
@@ -252,7 +300,8 @@ class automatic_addressbook extends rcube_plugin
                     $auto_abook->reset();
                     $collected_contact = $auto_abook->search('email', $contact_email, false, true);
                     while ($record = $collected_contact->iterate()) {
-                        $plugin = $rcmail->plugins->exec_hook('contact_delete',array('id' => $record['contact_id'], 'source' => $this->abook_id));
+                        $plugin = $rcmail->plugins->exec_hook('contact_delete', array('id' => $record['contact_id'],
+                                                                                      'source' => $this->abook_id));
                         if (!$plugin['abort']) {
                             $auto_abook->delete($record['contact_id']);
                             $rcmail->output->show_message('automatic_addressbook.contactremoved', 'confirmation');
@@ -260,7 +309,11 @@ class automatic_addressbook extends rcube_plugin
                     }
                 }
             }
-            if ($rcmail->task == "addressbook" && $rcmail->action == "copy" && $_REQUEST['_source'] == $this->abook_id) $rcmail->output->command('parent.list_contacts');
+            if ($rcmail->task == "addressbook" &&
+                $rcmail->action == "copy" &&
+                $_REQUEST['_source'] == $this->abook_id) {
+                $rcmail->output->command('parent.list_contacts');
+            }
         }
 
         return $args;
