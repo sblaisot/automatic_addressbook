@@ -1,5 +1,4 @@
 <?php
-$labels = array();
 $labels['automaticallycollected']  = 'הכתובת נוספה אוטומטית לספר הכתובות';
 $labels['useautoabook']  = 'שימוש בספר כתובות הנאספות אוטומטית';
 $labels['useforcompletion'] = 'השלמת כתובת מתוך ספר כתובות הנאספות אוטומטית';

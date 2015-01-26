@@ -1,8 +1,7 @@
 <?php
-$labels = array();
-$labels['automaticallycollected']  = 'Automatically Collected';
-$labels['useautoabook']  = 'Use automatic address book';
-$labels['useforcompletion'] = 'Use automatically collected addresses for autocompletion';
-$labels['contactremoved'] = 'Contact(s) deleted from automatic address book';
-$labels['contactmoved'] = 'Contact(s) moved from automatic address book';
+$labels['automaticallycollected']  = 'Automaattisesti kerätty';
+$labels['useautoabook']  = 'Käytä automaattista osoitekirjaa';
+$labels['useforcompletion'] = 'Käytä automaattisesti kerättyjä osoitteita automaattitäydennystä varten';
+$labels['contactremoved'] = 'Automaattisesta osoitekirjasta poistetut yhteystiedot';
+$labels['contactmoved'] = 'Automaattisesta osoitekirjasta siirretyt yhteystiedot';
 ?>

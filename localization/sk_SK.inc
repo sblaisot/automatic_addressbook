@@ -1,8 +1,7 @@
 <?php
-$labels = array();
-$labels['automaticallycollected']  = 'Automatically Collected';
-$labels['useautoabook']  = 'Use automatic address book';
-$labels['useforcompletion'] = 'Use automatically collected addresses for autocompletion';
-$labels['contactremoved'] = 'Contact(s) deleted from automatic address book';
-$labels['contactmoved'] = 'Contact(s) moved from automatic address book';
+$labels['automaticallycollected']  = 'Automaticky zozbierané';
+$labels['useautoabook']  = 'Použiť automatický adresár';
+$labels['useforcompletion'] = 'Použiť automaticky zozbierané adresy na automatické dokončovanie';
+$labels['contactremoved'] = 'Kontakty, ktoré boli vymazané z automatického adresára';
+$labels['contactmoved'] = 'Kontakty, ktoré boli presunuté z automatického adresára';
 ?>

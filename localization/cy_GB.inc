@@ -1,5 +1,4 @@
 <?php
-$labels = array();
 $labels['automaticallycollected']  = 'Casglwyd yn Awtomatig';
 $labels['useautoabook']  = 'Defnyddio llyfr cyfeiriadau awtomatig';
 $labels['useforcompletion'] = 'Defnyddio cyfeiriadau casglwyd yn awtomatig ar gyfer awtogwblhau';
