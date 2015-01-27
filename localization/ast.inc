@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Acollechao automáticamente';
 $labels['useautoabook']  = 'Usar llibru de direiciones automáticu';
 $labels['useforcompletion'] = 'Usar direiciones acollechaes pal autocompletáu automáticamente';

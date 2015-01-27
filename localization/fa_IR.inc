@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'به صورت خودکار جمع‌آوری شده';
 $labels['useautoabook']  = 'استفاده از دفترچه نشانی خودکار';
 $labels['useforcompletion'] = 'استفاده از دفترچه نشانی خودکار برای کامل کردن خودکار';

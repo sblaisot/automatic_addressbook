@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Yığılmış ünvanlar';
 $labels['useautoabook']  = 'Yığılmış ünvanları istifadə et';
 $labels['useforcompletion'] = 'Avtobitmə üçün avtomatik yığılmış ünvanları istifadə et';

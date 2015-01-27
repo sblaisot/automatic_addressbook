@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Pievienoti automātiski';
 $labels['useautoabook']  = 'Lietot automātisko adrešu grāmatu';
 $labels['useforcompletion'] = 'Automātiskajai pabeigšanai lietot automātiski pievienotās adreses';

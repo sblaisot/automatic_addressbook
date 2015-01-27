@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automatski sakupljeno';
 $labels['useautoabook']  = 'Koristi automatski adresar';
 $labels['useforcompletion'] = 'Koristi automatski sakupljene adresa za autozavršavanje';

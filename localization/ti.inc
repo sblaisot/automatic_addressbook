@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'ዓርሰ እኩብ';
 $labels['useautoabook']  = 'አድራሻ ካብ መጽሓፍ በዓርሱ ይምጻእ';
 $labels['useforcompletion'] = 'ዓርሰመፈጸምታ አድራሻ ካብ ዓርሰ እኩብ ይምጻእ';

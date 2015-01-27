@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Colectate automat';
 $labels['useautoabook']  = 'Utilizare agendă automată';
 $labels['useforcompletion'] = 'Utilizare adrese colectate automat la autocompletare';

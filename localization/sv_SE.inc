@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automatiskt insamlad';
 $labels['useautoabook']  = 'Använd automatisk adressbok';
 $labels['useforcompletion'] = 'Använd automatisk adressbok vid automatisk komplettering';

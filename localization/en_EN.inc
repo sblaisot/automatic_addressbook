@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 
 /*
  +-----------------------------------------------------------------------+
@@ -13,7 +14,6 @@
  +-----------------------------------------------------------------------+
 */
 
-$labels = array();
 $labels['automaticallycollected'] = 'Automatically Collected';
 $labels['useautoabook'] = 'Use automatic address book';
 $labels['useforcompletion'] = 'Use automatically collected addresses for autocompletion';

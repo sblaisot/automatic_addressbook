@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'تجميع تلقائي';
 $labels['useautoabook']  = 'استخدم دفتر العناوين تلقائي';
 $labels['useforcompletion'] = 'استخدم التجميع التلقائي للعناوين من اجل الاكمال التلقائي';

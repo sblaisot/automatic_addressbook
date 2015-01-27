@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Recolectado automaticamente';
 $labels['useautoabook']  = 'Usar libreta automatica de direcciones';
 $labels['useforcompletion'] = 'Usar las direcciones recolectadas automaticamente para autocompletar';

@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Dastum emgefre';
 $labels['useautoabook']  = 'Implij emgefre c\'harned darempredoù';
 $labels['useforcompletion'] = 'Use automatically collected addresses for autocompletion';

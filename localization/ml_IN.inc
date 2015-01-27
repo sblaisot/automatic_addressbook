@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'തനിയേ ശേഖരിച്ചത്';
 $labels['useautoabook']  = 'തനിയേയുള്ള വിലാസപുസ്തകം ഉപയോഗിക്കുക';
 $labels['useforcompletion'] = 'തനിയേ പൂരിപ്പിക്കാൻ തനിയേ ശേഖരിച്ച വിലാസങ്ങൾ ഉപയോഗിക്കുക';

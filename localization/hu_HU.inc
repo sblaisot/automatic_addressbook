@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automatikusan begyűjtött';
 $labels['useautoabook']  = 'Kapcsolati adatok automatikus mentése';
 $labels['useforcompletion'] = 'Gyűjtött kapcsolatok használata az automatikus kiegészítéshez';

@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Innsamla sjálvirkandi';
 $labels['useautoabook']  = 'Brúka sjálvvirkandi búðstaðar bók';
 $labels['useforcompletion'] = 'Nýt sjálvirkandi innsamlaðar teldupostir til sjálvirkandi innseting';

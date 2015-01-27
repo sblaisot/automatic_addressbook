@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automatisk innsamlet';
 $labels['useautoabook']  = 'Bruk automatisk adressebok';
 $labels['useforcompletion'] = 'Bruk automatisk innsamlede adresser for auto-fullføring';

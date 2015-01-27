@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Enderezos recentes';
 $labels['useautoabook']  = 'Gardar automáticamente os enderezos aos que se envía correo';
 $labels['useforcompletion'] = 'Usar os enderezos recentes para autocompletar';

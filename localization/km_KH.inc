@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'បាន​ប្រមូល​ដោយ​ស្វ័យ​ប្រវត្តិ';
 $labels['useautoabook']  = 'ប្រើ​សៀវភៅ​អាសយដ្ឋាន​ស្វ័យ​ប្រវត្តិ';
 $labels['useforcompletion'] = 'ប្រើអាសយដ្ឋាន​បាន​ប្រមូល​ដោយ​ស្វ័យ​ប្រវត្តិ​សម្រាប់ការ​បំពេញស្វ័យ​ប្រវត្តិ';

@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Ավտոմատ կերպով հավաքված է';
 $labels['useautoabook']  = 'Օգտագործել ավտոմատ հասցեագիրքը';
 $labels['useforcompletion'] = 'Օգտագոչծել ավտոմատ կերպով հավաքված հասցեները ավտոլրացման համար';

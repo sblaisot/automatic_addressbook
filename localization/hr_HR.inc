@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automatski prikupljeno';
 $labels['useautoabook']  = 'Koristi automatski imenik';
 $labels['useforcompletion'] = 'Koristi prikupljene e-mail adrese za samodopunjavanje';

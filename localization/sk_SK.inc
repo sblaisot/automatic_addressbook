@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automaticky zozbierané';
 $labels['useautoabook']  = 'Použiť automatický adresár';
 $labels['useforcompletion'] = 'Použiť automaticky zozbierané adresy na automatické dokončovanie';

@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automaatselt kogutud';
 $labels['useautoabook']  = 'Kasuta automaatset aadressiraamatut';
 $labels['useforcompletion'] = 'Kasuta aadresside lõpetamiseks automaatselt kogutud aadresse';

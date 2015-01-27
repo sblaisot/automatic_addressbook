@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automatisch verzameld';
 $labels['useautoabook']  = 'Gebruik automatisch adresboek';
 $labels['useforcompletion'] = 'Gebruik automatisch verzamelde adressen voor automatisch aanvullen';

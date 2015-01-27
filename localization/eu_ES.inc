@@ -1,4 +1,5 @@
 <?php
+$labels = array();
 $labels['automaticallycollected']  = 'Automatikoki bilduta';
 $labels['useautoabook']  = 'Erabili helbide-liburu automatikoa';
 $labels['useforcompletion'] = 'Erabili automatikoki bildutako helbideak auto osatzerako';
