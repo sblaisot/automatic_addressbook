@@ -15,7 +15,7 @@
  * @version 0.4
  * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
  * @author Sebastien Blaisot <sebastien@blaisot.org>
- * @website http://code.crapouillou.net/projects/roundcube-plugins
+ * @website https://github.com/sblaisot/automatic_addressbook
  * @licence http://www.gnu.org/licenses/gpl-3.0.html GNU GPLv3+
  *
  */

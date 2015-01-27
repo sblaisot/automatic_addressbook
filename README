@@ -4,7 +4,7 @@ Summary
 
 The automatic addressbook plugin collect each address you send an email to and records it in an address book, making it available for later use or auto-completion.
 
-report bugs, ideas and patches at : https://code.crapouillou.net/projects/roundcube-plugins
+report bugs, ideas and patches at : https://github.com/sblaisot/automatic_addressbook
 
 
 Contributing
@@ -12,9 +12,9 @@ Contributing
 
 Feel free to report issues, suggest features or to submit patches on the issue tracker.
 
-You can get the code from svn at:
+You can get the code from git at:
 
-    svn co https://crapouillou.net/svn/rc_plugins/automatic_addressbook
+    git clone https://github.com/sblaisot/automatic_addressbook
 
 
 
