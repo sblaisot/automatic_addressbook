@@ -38,6 +38,7 @@
         "roundcube": {
             "min-version": "0.6.0",
             "max-version": "10.21"
+            "sql-dir": "SQL"
         }
     } 
 }
