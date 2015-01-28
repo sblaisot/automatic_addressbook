@@ -5,8 +5,11 @@
  *
  * Minimal backend for Automatic Addressbook
  *
- * @author Jocelyn Delalande
- * @version 0.1
+ * @version 0.4
+ * @author Jocelyn Delalande (slightly modified by Roland 'rosali' Liebl)
+ * @author Sebastien Blaisot <sebastien@blaisot.org>
+ * @website https://github.com/sblaisot/automatic_addressbook
+ * @licence http://www.gnu.org/licenses/gpl-3.0.html GNU GPLv3+
  */
 
 class automatic_addressbook_backend extends rcube_contacts
