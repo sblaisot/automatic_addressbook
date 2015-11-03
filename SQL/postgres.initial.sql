@@ -1,9 +1,9 @@
 --
--- Sequence "collected_contact_ids"
--- Name: collected_contact_ids; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Sequence "collected_contacts_seq"
+-- Name: collected_contacts_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE collected_contact_ids
+CREATE SEQUENCE collected_contacts_seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -16,7 +16,7 @@ CREATE SEQUENCE collected_contact_ids
 --
 
 CREATE TABLE collected_contacts (
-    contact_id integer DEFAULT nextval('collected_contact_ids'::text) PRIMARY KEY,
+    contact_id integer DEFAULT nextval('collected_contacts_seq'::text) PRIMARY KEY,
     user_id integer NOT NULL
         REFERENCES users (user_id) ON DELETE CASCADE ON UPDATE CASCADE,
     changed timestamp with time zone DEFAULT now() NOT NULL,
