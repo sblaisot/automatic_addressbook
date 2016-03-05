@@ -78,7 +78,7 @@ class automatic_addressbook extends rcube_plugin
         if ($rcmail->config->get('use_auto_abook', true)) {
             $p['sources'][$this->abook_id] = 
                 array('id' => $this->abook_id,
-                      'name' => Q($this->gettext('automaticallycollected')),
+                      'name' => rcube_utils::rep_specialchars_output($this->gettext('automaticallycollected')),
                       'readonly' => FALSE, 'groups' => false);
         }
 
@@ -214,7 +214,7 @@ class automatic_addressbook extends rcube_plugin
             ));
             $args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
             $args['blocks']['automaticallycollected']['options']['use_subscriptions'] = array(
-                'title' => html::label($field_id, Q($this->gettext('useautoabook'))),
+                'title' => html::label($field_id, rcube_utils::rep_specialchars_output($this->gettext('useautoabook'))),
                 'content' => $checkbox->show($use_auto_abook ? 1 : 0),
             );
 
@@ -226,7 +226,7 @@ class automatic_addressbook extends rcube_plugin
                          ));
             $args['blocks']['automaticallycollected']['name'] = $this->gettext('automaticallycollected');
             $args['blocks']['automaticallycollected']['options']['use_autocompletion'] = array(
-                'title' => html::label($field_id2, Q($this->gettext('useforcompletion'))),
+                'title' => html::label($field_id2, rcube_utils::rep_specialchars_output($this->gettext('useforcompletion'))),
                 'content' => $checkbox2->show($use_auto_abook_for_completion ? 1 : 0),
             );
         }
