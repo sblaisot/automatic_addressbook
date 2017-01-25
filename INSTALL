@@ -16,6 +16,7 @@ Download the latest version archive
     mv automatic_addressbook <path_to_roundcube>/plugins/
 
 2. Execute the relevant SQL/<db engine>.initial.sql script on your database (process depends on your DB engine)
+    If your Roundcube Database starts with a prefix set the prefix also in the SQL Statement: "REFERENCES `PREFIX_users`(`user_id`)"
 
 3. Add "automatic_addressbook" to the plugins list in
    <path_to_roundcube>/config/main.inc.php or <path_to_roundcube>/config/config.inc.php depending on your roundcube version, for example :
