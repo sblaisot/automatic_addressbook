@@ -1,4 +1,4 @@
-CREATE TABLE collected_contacts (
+CREATE TABLE IF NOT EXISTS collected_contacts (
   contact_id integer NOT NULL PRIMARY KEY,
   user_id integer NOT NULL,
   changed datetime NOT NULL default '0000-00-00 00:00:00',

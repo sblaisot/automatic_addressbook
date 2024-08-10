@@ -1,4 +1,4 @@
-CREATE TABLE `collected_contacts` (
+CREATE TABLE IF NOT EXISTS `collected_contacts` (
  `contact_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
  `changed` datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
  `del` tinyint(1) NOT NULL DEFAULT '0',

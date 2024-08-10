@@ -15,7 +15,7 @@ CREATE SEQUENCE collected_contacts_seq
 -- Name: collected_contacts; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE collected_contacts (
+CREATE TABLE IF NOT EXISTS collected_contacts (
     contact_id integer DEFAULT nextval('collected_contacts_seq'::text) PRIMARY KEY,
     user_id integer NOT NULL
         REFERENCES users (user_id) ON DELETE CASCADE ON UPDATE CASCADE,

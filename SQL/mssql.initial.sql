@@ -1,4 +1,9 @@
-CREATE TABLE [dbo].[collected_contacts] (
+IF NOT EXISTS (
+        SELECT * FROM sys.tables t 
+        JOIN sys.schemas s ON (t.schema_id = s.schema_id) 
+        WHERE s.name = 'dbo' AND t.name = 'collected_contacts'
+        )
+        CREATE TABLE [dbo].[collected_contacts] (
         [contact_id] [int] IDENTITY (1, 1) NOT NULL ,
         [user_id] [int] NOT NULL , 
         [changed] [datetime] NOT NULL ,
